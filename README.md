@@ -2,6 +2,7 @@
 llama index gui tool
 python > 3.10
 llama index：https://github.com/jerryjliu/llama_index.git
+
 界面库部分参考;https://github.com/Akegarasu/ChatGLM-webui.git
 
 # Features
@@ -13,6 +14,7 @@ pip install -r .\requirements.txt
 # run
 1、
 修改chat_gui.py  build_gui.py  build.py 中的openai api  key
+
     #openai key
     os.environ["OPENAI_API_KEY"] = 'your openai key'
     #代理
