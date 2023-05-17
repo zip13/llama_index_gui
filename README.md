@@ -3,7 +3,7 @@ llama index gui tool
 python > 3.10
 llama index：https://github.com/jerryjliu/llama_index.git
 
-界面库部分参考;https://github.com/Akegarasu/ChatGLM-webui.git
+界面库部分参考：https://github.com/Akegarasu/ChatGLM-webui.git
 
 # Features
 通过 llama index加载自定义知识库给openai进行自有知识库问题回答
