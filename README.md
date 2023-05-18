@@ -13,8 +13,12 @@ pip install -r .\requirements.txt
 
 # run
 1、
-修改chat_gui.py  build_gui.py  build.py 中的openai api  key
+设置环境变量
+    set OPENAI_API_KEY=your openai key
+    set http_proxy=http://127.0.0.1:1080
+    set https_proxy=http://127.0.0.1:1080
 
+    或者在代码中添加
     #openai key
     os.environ["OPENAI_API_KEY"] = 'your openai key'
     #代理

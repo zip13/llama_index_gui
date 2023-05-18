@@ -18,7 +18,6 @@ _gradio_template_response_orig = gr.routes.templates.TemplateResponse
 
 
 index=None
-first = True
 
 def load_index():
     global index
@@ -50,10 +49,8 @@ def chat(ctx, message, model_type,refFlag):
         response_mode=model_type
     )
 
-    if first:
-        response = query_engine.query(message+',请用中文回答')
-    else:
-        response = query_engine.query(message)
+
+    response = query_engine.query(message)
 
     
     print(response)
