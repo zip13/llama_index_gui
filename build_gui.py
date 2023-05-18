@@ -4,6 +4,7 @@ import sys
 import os
 import logging
 import gradio as gr
+import json
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
@@ -24,7 +25,25 @@ def construct_index(folder_path,temperature,max_input_size,num_outputs,max_chunk
     index = GPTVectorStoreIndex.from_documents(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
    
     index.storage_context.persist(persist_dir=folder_output_path)
-    return "保存成功"
+    
+    datastr = read_storage_data(folder_output_path)
+    
+    return "向量库建立成功：\n"+datastr;
+
+
+def read_storage_data(folder_output_path):
+    # 打开你的文件
+    with open(folder_output_path+'/docstore.json', 'r', encoding='utf-8') as file:
+        data = json.load(file)
+
+    # 现在 'data' 是一个Python字典，它包含了你的JSON文件中的数据
+    # 可以打印出来查看
+    # 将Python字典进行格式化
+    formatted_data = json.dumps(data, indent=4, ensure_ascii=False)
+
+    # 输出格式化后的数据
+    return formatted_data
+
 
 
 def BuildDig():
