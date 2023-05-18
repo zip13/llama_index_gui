@@ -82,7 +82,7 @@ def pprint_source_node(
     # print(f"Similarity: {source_node.score}")
     # print(textwrap.fill(f"Text: {source_text_fmt}\n", width=wrap_width))
     return "".join([
-        f'(相似度{source_node.similarity}) ',  
+        f'(相似度{source_node.score}) ',  
         "\nnode id:",
         source_node.doc_id,  
         "\n",
