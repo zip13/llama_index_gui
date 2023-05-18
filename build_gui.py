@@ -5,15 +5,9 @@ import os
 import logging
 import gradio as gr
 import json
+from env import ini_env
 
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
-logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
-#openai key
-#os.environ["OPENAI_API_KEY"] = 'your openai key'
-#代理
-#os.environ["http_proxy"] = "http://127.0.0.1:1080"
-#os.environ["https_proxy"] = "http://127.0.0.1:1080"
 
 def construct_index(folder_path,temperature,max_input_size,num_outputs,max_chunk_overlap,chunk_size_limit,folder_output_path):
 
@@ -65,11 +59,8 @@ def BuildDig():
         # 设置没有保存数据的按钮
         allow_flagging="never",
     )
-   
-
-   
     return demo
 
 
-
+ini_env()
 BuildDig().launch(share=True,server_port=8080,server_name="127.0.0.1")

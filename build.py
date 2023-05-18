@@ -1,17 +1,8 @@
 from llama_index import SimpleDirectoryReader, GPTListIndex, GPTVectorStoreIndex, LLMPredictor, PromptHelper
-
 from langchain import OpenAI
+from env import ini_env
 import sys
-import os
-import logging
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
-logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
-#openai key
-os.environ["OPENAI_API_KEY"] = 'your openai key'
-#代理
-os.environ["http_proxy"] = "http://127.0.0.1:1080"
-os.environ["https_proxy"] = "http://127.0.0.1:1080"
 
 def construct_index(directory_path):
 
@@ -35,5 +26,5 @@ def construct_index(directory_path):
     return index
 
 
-
+ini_env()
 construct_index("docs")

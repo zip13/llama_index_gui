@@ -13,13 +13,7 @@ pip install -r .\requirements.txt
 
 # run
 1、
-设置环境变量
-    powershell 下
-    [Environment]::SetEnvironmentVariable("OPENAI_API_KEY", "your-api-key-here", "Machine")
-    [Environment]::SetEnvironmentVariable("http_proxy", "http://127.0.0.1:1080", "Machine")
-    [Environment]::SetEnvironmentVariable("https_proxy", "http://127.0.0.1:1080", "Machine")
-
-    或者在代码中添加
+设置环境变量 env.py
     #openai key
     os.environ["OPENAI_API_KEY"] = 'your openai key'
     #代理
