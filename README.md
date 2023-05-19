@@ -1,4 +1,5 @@
 # Llama Index GUI Tool
+English | [简体中文](./README.zh-CN.md)
 
 This project utilizes the Llama Index（GPT Index）、ChatGPT and Python to build a custom knowledge base for OpenAI to answer questions from. It offers a graphical user interface (GUI) for visualizing the construction of the vector library from the knowledge base, as well as a chatting interface for question-answering based on the locally built knowledge base. This tool is developed with Python versions higher than 3.10, and it's recommended to use Conda for environment configuration.
 
