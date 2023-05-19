@@ -1,4 +1,5 @@
 # Llama Index GUI 工具
+[English](./README.md) | 简体中文
 
 本项目利用 Llama Index（GPT Index） 和 Python 构建一个定制的知识库，使 OpenAI 能够回答来自该知识库的问题。它提供了一个图形用户界面（GUI），用于可视化从知识库构建向量库，以及一个基于本地构建的知识库进行问题回答的聊天界面。该工具开发使用的 Python 版本高于 3.10，建议使用 Conda 进行环境配置。
 
