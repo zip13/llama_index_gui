@@ -1,55 +1,55 @@
-# Llama Index GUI Tool
-English | [简体中文](./README.zh-CN.md)
+# Llama Index GUI 工具
+[English](./README.en.md) | 简体中文
 
-This project utilizes the Llama Index（GPT Index）、ChatGPT and Python to build a custom knowledge base for OpenAI to answer questions from. It offers a graphical user interface (GUI) for visualizing the construction of the vector library from the knowledge base, as well as a chatting interface for question-answering based on the locally built knowledge base. This tool is developed with Python versions higher than 3.10, and it's recommended to use Conda for environment configuration.
+本项目利用 Llama Index（GPT Index） 和 Python 构建一个定制的知识库，使 OpenAI 能够回答来自该知识库的问题。它提供了一个图形用户界面（GUI），用于可视化从知识库构建向量库，以及一个基于本地构建的知识库进行问题回答的聊天界面。该工具开发使用的 Python 版本高于 3.10，建议使用 Conda 进行环境配置。
 
-Source code for the Llama Index can be found here: https://github.com/jerryjliu/llama_index.git
-The GUI was built with some inspiration from here: https://github.com/Akegarasu/ChatGLM-webui.git
+Llama Index 的源代码可以在这里找到：https://github.com/jerryjliu/llama_index.git
+GUI 部分参考了这个项目：https://github.com/Akegarasu/ChatGLM-webui.git
 
-## Features
-- Load custom knowledge bases through the Llama Index for OpenAI to answer questions from.
-- The `build_gui.py` script provides a visual way to build a vector library from the knowledge base.
-- The `chat_gui.py` script offers a chatting interface that uses the built vector library to answer questions.
+## 功能
+- 通过 Llama Index 加载自定义知识库，使 OpenAI 能够回答来自这个知识库的问题。
+- `build_gui.py` 脚本提供了一种可视化方式，用于从知识库构建向量库。
+- `chat_gui.py` 脚本提供了一个聊天界面，该界面使用已构建的向量库回答问题。
 
-## Installation
-Install the necessary packages with the following command:
+## 安装
+使用以下命令安装必要的包：
 ```
 pip install -r requirements.txt
 ```
 
-## Environment Configuration
-Set your environment variables in the `env.py` file:
+## 环境配置
+在 `env.py` 文件中设置环境变量：
 
 ```python
-# OpenAI API Key
+# OpenAI API 密钥
 os.environ["OPENAI_API_KEY"] = 'your openai key'
 
-# Proxy settings
+# 代理设置
 os.environ["http_proxy"] = "http://127.0.0.1:1080"
 os.environ["https_proxy"] = "http://127.0.0.1:1080"
 ```
 
-## Usage
+## 使用方法
 
-1. **Build the Vector Library**
+1. **构建向量库**
 
-   You can build the vector library either visually using `build_gui.py` or through command line using `build.py` script. Run one of the following commands:
+   您可以使用 `build_gui.py` 脚本可视化地构建向量库，或者使用 `build.py` 脚本在命令行中构建。运行以下命令之一：
 
     ```
     python build_gui.py
     ```
-    or
+    或者
 
     ```
     python build.py
     ```
 
-2. **Load the Context and Start the Chat Program**
+2. **加载上下文并启动聊天程序**
 
-   Once the vector library is built, you can load the context and start the chat program. This will allow the system to answer questions based on the content of the vector library. Use the following command to start:
+   一旦向量库构建完成，您可以加载上下文并启动聊天程序。这将使系统能够根据向量库的内容回答问题。使用以下命令启动：
 
     ```
     python chat_gui.py
     ```
 
-Enjoy your custom-built AI assistant!
+尽情享受您的定制化 AI 助手吧！
