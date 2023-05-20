@@ -46,7 +46,10 @@ function executeCallbacks(queue, m) {
 
 function saveDivAsFile(divId, fileNameToSaveAs) {
     var divToSave = document.getElementById(divId);
-    var secondDivContents = divToSave.children[1].innerHTML;
+    var index = 0;
+    if(divToSave.children.length >1)
+        index = 1;
+    var secondDivContents = divToSave.children[index].innerHTML;
     var textToSaveAsBlob = new Blob([secondDivContents], { type: "text/plain" });
     var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
     var downloadLink = document.createElement("a");
