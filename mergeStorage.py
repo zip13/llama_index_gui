@@ -32,12 +32,15 @@ def load_index(persist_dir):
 
 
 ini_env()
+#加载已有index向量库
 index5g = load_index('./storage/5g')
-#print(index5g.nodes)
 
+#加载新增文档
 documents = SimpleDirectoryReader('./docs/bai').load_data()
 
+#添加文档到已有index
 for doc in documents:
     index5g.insert(doc)
 
+#保存到新的位置
 index5g.storage_context.persist(persist_dir='./storage/all')

@@ -11,7 +11,7 @@ parser.add_argument("--num_output", type=int, default="1024")
 parser.add_argument("--chunk_size_limit", type=int, default="1024")
 parser.add_argument("--max_chunk_overlap", type=int, default="20")
 parser.add_argument("--max_input_size", type=int, default="4096")
-parser.add_argument("--similarity_top_k", type=int, default="3")
+parser.add_argument("--similarity_top_k", help="top k from input index", type=int, default="3")
 parser.add_argument("--temperature", type=float, default="0")
 
 #gradio param

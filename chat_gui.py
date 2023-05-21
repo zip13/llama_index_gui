@@ -18,17 +18,6 @@ def init():
     load_index()
 
 
-def wait_on_server(ui=None):
-    while 1:
-        time.sleep(1)
-        if chat_options.need_restart:
-            chat_options.need_restart = False
-            time.sleep(0.5)
-            ui.close()
-            time.sleep(0.5)
-            break
-
-
 def main():
     while True:
         ui = create_ui()

@@ -8,23 +8,24 @@ import json
 from env import ini_env
 
 
-
+#构建向量库index
 def construct_index(folder_path,temperature,max_input_size,num_outputs,max_chunk_overlap,chunk_size_limit,folder_output_path):
 
+    #设置模型
     prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap, chunk_size_limit=chunk_size_limit)
-
     llm_predictor = LLMPredictor(llm=OpenAI(temperature=temperature, model_name="gpt-3.5-turbo", max_tokens=num_outputs))
 
+    #读取目录下的文档
     documents = SimpleDirectoryReader(folder_path).load_data()
     index = GPTVectorStoreIndex.from_documents(documents, llm_predictor=llm_predictor, prompt_helper=prompt_helper)
-   
     index.storage_context.persist(persist_dir=folder_output_path)
-    
+
+    #读取保存后的结果
     datastr = read_storage_data(folder_output_path)
-    
     return "向量库建立成功：\n"+datastr;
 
 
+#读取保存的向量库
 def read_storage_data(folder_output_path):
     # 打开你的文件
     with open(folder_output_path+'/docstore.json', 'r', encoding='utf-8') as file:
@@ -53,7 +54,6 @@ def BuildDig():
     folder_output_path = gr.inputs.Textbox(label="请选择文档目录",default="./storage")
     demo = gr.Interface(
         construct_index,
-        # 添加state组件
         [folder_path,temperature_slider,max_input_size,num_outputs,max_chunk_overlap,chunk_size_limit,folder_output_path],
         ["text"],
         # 设置没有保存数据的按钮
@@ -61,6 +61,7 @@ def BuildDig():
     )
     return demo
 
-
+#加载环境变量
 ini_env()
-BuildDig().launch(share=True,server_port=8080,server_name="127.0.0.1")
+#启动服务
+BuildDig().launch(share=True,server_port=17860,server_name="127.0.0.1")
